@@ -1,18 +1,19 @@
-package com.supinfo.suprails.dao.jpa;
+package com.supinfo.suprails.dao.jpa.impl;
 
+import com.supinfo.suprails.dao.jpa.TrainStationDao;
 import com.supinfo.suprails.entity.TrainStation;
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
  * @author bargenson
  */
 @Stateless
-public class JpaTrainStationDao {
+public class JpaTrainStationDao implements TrainStationDao, Serializable {
 
     @PersistenceContext
     private EntityManager em;

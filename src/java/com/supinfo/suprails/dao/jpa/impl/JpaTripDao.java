@@ -1,6 +1,8 @@
-package com.supinfo.suprails.dao.jpa;
+package com.supinfo.suprails.dao.jpa.impl;
 
+import com.supinfo.suprails.dao.jpa.TripDao;
 import com.supinfo.suprails.entity.Trip;
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -11,7 +13,7 @@ import javax.persistence.PersistenceContext;
  * @author bargenson
  */
 @Stateless
-public class JpaTripDao {
+public class JpaTripDao implements TripDao, Serializable {
 
     @PersistenceContext
     private EntityManager em;

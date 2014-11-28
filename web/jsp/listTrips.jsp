@@ -37,24 +37,27 @@
                             <th>Action</th>
                         </c:if>
                     </tr>
-                    <tr>
-                        <c:forEach items="${trips}" var="trip">
-
+                    <c:forEach items="${trips}" var="trip">
+                        <tr>
                             <c:url value="/admin/trips/delete" var="deleteTripUrl">
                                 <c:param name="id" value="${trip.id}" />
                             </c:url>
+                            
+                            <c:url value="/order" var="processOrderUrl">
+                                <c:param name="tripId" value="${trip.id}" />
+                            </c:url>
 
-                            <td><c:out value="${trip.departureStation.name}" /></td>
-                            <td><c:out value="${trip.arrivalStation.name}" /></td>
-                            <td><c:out value="€${trip.price}" /></td>
+                            <td>${trip.departureStation.name}</td>
+                            <td>${trip.arrivalStation.name}</td>
+                            <td>€${trip.price}</td>
+                            <td><a href="${processOrderUrl}">Buy it !</a></td>
                             <c:if test="${not empty user}">
                                 <td>
                                     <a href="${deleteTripUrl}">Delete</a>
                                 </td>
                             </c:if>
-
-                        </c:forEach>
-                    </tr>
+                        </tr>
+                    </c:forEach>
                 </table>
             </c:when>
             <c:otherwise>
